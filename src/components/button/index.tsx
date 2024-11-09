@@ -1,16 +1,10 @@
-import { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+import './button.css';
 
 const buttonVariant = cva(
   [
-    'rounded-[14px]',
-    'p-[12px_16px]',
-    'flex',
-    'justify-center',
-    'items-center',
-    'gap-[8px]',
-    'flex-shrink-0',
-    'text-body-bold',
+    'storybook-button'
   ],
   {
     variants: {
@@ -25,9 +19,9 @@ const buttonVariant = cva(
         ],
       },
       size: {
-        small: ['w-[100px]', 'h-[35px]'],
-        medium: ['w-[150px]', 'h-[45px]'],
-        large: ['w-[200px]', 'h-[55px]'],
+        small: ['storybook-button--small'],
+        medium: ['storybook-button--medium'],
+        large: ['storybook-button--large'],
       },
     },
     defaultVariants: {
@@ -39,10 +33,25 @@ const buttonVariant = cva(
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariant> {}
+    VariantProps<typeof buttonVariant> {
+    label: string;
+}
 
-const Button = ({ variant, size, ...rest }: ButtonProps) => {
-  return <button className={buttonVariant({ size, variant })} {...rest} />;
+export const Button = ({
+                         variant,
+                         size,
+                         label= "Button",
+                         ...rest }: ButtonProps) => {
+  return (
+    // <button className={buttonVariant({ size, variant })} {...rest} />
+    <button
+      type="button"
+      className={buttonVariant({ size, variant })}
+      {...rest}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default Button;
