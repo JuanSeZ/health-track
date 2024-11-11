@@ -55,6 +55,26 @@ export default {
       m2: '11.11px',
       label: '10px',
     },
+    fontFamily: {
+      sans: [
+        "Montserrat",
+        "system-ui",
+        "-apple-system",
+      ],
+      handwriting: [
+        "Montserrat",
+        "system-ui",
+        "-apple-system",
+      ],
+    },
+    fontWeight: {
+      extralight: 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+      extrabold: 800,
+      black: 900,
+    },
   },
   plugins: [],
 };
