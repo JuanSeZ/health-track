@@ -9,21 +9,21 @@ import ProfileIconOutline from '../../assests/profile-icon-outline.svg';
 import ProfileIconFill from '../../assests/profile-icon-fill.svg';
 import PillsIconOutline from '../../assests/pill-icon-outline.svg';
 import PillsIconFill from '../../assests/pill-icon-fill.svg';
-import { useState } from 'react';
+import { NavBarItemType } from './Navbar.stories.tsx';
+import { useEffect, useState } from 'react';
 
-enum NavBarItemType {
-  Home = 'Home',
-  Inventory = 'Inventory',
-  Pills = 'Pills',
-  Calendar = 'Calendar',
-  Profile = 'Profile',
+
+export interface NavBarProps{
+  activeItem: NavBarItemType;
 }
 
-const Navbar = () => {
+const Navbar = (props: NavBarProps) => {
   const [activeItem, setActiveItem] = useState<NavBarItemType>(
-    NavBarItemType.Home
+    props.activeItem
   );
-
+  useEffect(()=>{
+    setActiveItem(props.activeItem)
+  }, [props.activeItem]);
   const navbarItems = [
     {
       label: 'Home',

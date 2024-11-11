@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Navbar from './index.tsx';
-import { fn } from '@storybook/test';
+
+export enum NavBarItemType {
+  Home = 'Home',
+  Inventory = 'Inventory',
+  Pills = 'Pills',
+  Calendar = 'Calendar',
+  Profile = 'Profile',
+}
 
 const meta = {
   title: 'Components/Navbar',
@@ -12,13 +19,9 @@ const meta = {
   argTypes: {
     activeItem: {
       control: 'select',
-      options: ['Home', 'Inventory', 'Pills', 'Calendar', 'Profile'],
+      options: NavBarItemType,
       description: 'Sets the active item in the navbar',
     },
-  },
-  args: {
-    onClick: fn,
-    activeItem: 'Home',
   },
 } satisfies Meta<typeof Navbar>;
 
@@ -27,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    activeItem: 'Home',
+    activeItem: NavBarItemType.Home,
   },
-  render: (args) => <Navbar {...args} />,
+  render: (args) => <Navbar activeItem={args.activeItem} />,
 };
