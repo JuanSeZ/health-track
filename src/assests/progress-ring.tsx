@@ -41,6 +41,7 @@ const ProgressRing = ({ percentage, color }: ProgressRingProps) => {
         dy=".3em"
         fontSize="20px"
         fill={color}
+        className="text-h4"
       >
         {percentage}%
       </text>

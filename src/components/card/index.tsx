@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import Button from '../button';
 import ProgressRing from '../../assests/progress-ring.tsx';
+import PlusIcon from '../../assests/plus-icon.tsx';
 import ProgressBar from '../../assests/progress-bar.tsx';
 
 const cardVariant = cva(
@@ -13,15 +14,14 @@ const cardVariant = cva(
     'flex-col',
     'justify-between',
     'gap-[8px]',
-    'bg-white',
     'w-full',
   ],
   {
     variants: {
       variant: {
-        default: ['border', 'border-gray-300'],
-        progressRing: ['border', 'border-primary-400', 'relative'],
-        progressBar: ['border', 'border-secondary-400', 'relative'],
+        default: [],
+        progressRing: ['relative'],
+        progressBar: ['relative'],
         pill: [
           'bg-primary-100',
           'text-primary-400',
@@ -38,28 +38,39 @@ const cardVariant = cva(
 );
 
 export interface CardProps extends VariantProps<typeof cardVariant> {
-  title: string;
+  title?: string;
   subtitle?: string;
+  headerColor?: string;
   description?: string;
+  descriptionColor?: string;
+  backgroundColor?: string;
+  iconColor?: string;
+  iconBackgroundColor?: string;
   percentage?: number;
   progressColor?: string;
+  buttonVariant: 'primary' | 'primaryOutlined' | 'primaryDark' | 'secondaryOutlined';
   icon?: ReactNode;
   action?: ReactNode;
 }
 
 const Card = ({
   variant,
-  size,
   title,
   subtitle,
+  headerColor,
   description,
+  descriptionColor,
   percentage,
+  backgroundColor,
+  iconColor,
+  iconBackgroundColor,
   progressColor,
+  buttonVariant,
   icon,
   action,
 }: CardProps) => {
   return (
-    <div className={`${cardVariant({ size, variant })}`}>
+    <div className={`${cardVariant({ variant })} bg-${backgroundColor}`}>
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
@@ -67,25 +78,44 @@ const Card = ({
           )}
         </div>
 
-        <div className="flex flex-col gap-2 max-h-fit px-2.5 py-2 w-full">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex flex-col">
-              <h3 className="text-lg font-bold">{title}</h3>
-              {subtitle && (
-                <h4 className="text-sm text-gray-500">{subtitle}</h4>
+        {title && (
+          <div className="flex flex-col gap-5 max-h-fit px-2.5 py-2 w-full">
+            <div className="flex items-center justify-between w-full">
+              <div className="flex flex-col">
+                {title && (
+                  <text className={`text-h3 text-${headerColor}`}>{title}</text>
+                )}
+                {subtitle && (
+                  <text className={`text-h6 text-left text-${headerColor}`}>
+                    {subtitle}
+                  </text>
+                )}
+              </div>
+              {icon && (
+                <div
+                  className={`icon bg-${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
+                >
+                  {icon}
+                </div>
               )}
             </div>
-            {icon && <div className="icon">{icon}</div>}
+            {description && (
+              <div className={`text-left text-m1 text-${descriptionColor}`}>
+                {description}
+              </div>
+            )}
+            {action && (
+              <div className="ml-auto">
+                <Button
+                  label="Add"
+                  leftIcon={<PlusIcon color={iconColor}/>}
+                  variant={buttonVariant}
+                  size='medium'
+                />
+              </div>
+            )}
           </div>
-          {description && (
-            <div className="text-sm text-gray-500 text-left">{description}</div>
-          )}
-          {action && (
-            <div className="ml-auto">
-              <Button label="Add" />
-            </div>
-          )}
-        </div>
+        )}
       </div>
 
       {variant === 'progressBar' && (

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './index.tsx';
-import PlusIcon from '../../assests/plus-icon.svg';
+import PlusIcon from '../../assests/plus-icon.tsx';
 import { fn } from '@storybook/test';
 
 const meta = {
