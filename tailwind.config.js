@@ -35,7 +35,6 @@ export default {
       white: '#ffffff',
       success: '#48CA93',
       error: '#FF6868',
-      // It has a 40% transparency
       warning: '#FFCC00',
       grey: '#A5A4A4',
       darkGrey: '#969AA3',
@@ -50,10 +49,10 @@ export default {
       h1: '47.78px',
       button: '17px',
       body: '16px',
-      'body-bold': '15px',
-      m1: '13.33px',
+      'body-bold': '20px',
+      label: '14px',
+      m1: '14px',
       m2: '11.11px',
-      label: '10px',
     },
     fontFamily: {
       sans: [
