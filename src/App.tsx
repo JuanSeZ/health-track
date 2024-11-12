@@ -1,10 +1,23 @@
 import './App.css';
-import Navbar from './components/navbar';
+import Card from './components/card';
+import PlusIcon from './assests/plus-icon.tsx'
 
 function App() {
   return (
     <div>
-      <Navbar />
+      {/*<Navbar />*/}
+      <Card
+        title="Water"
+        variant="pill"
+        percentage={50}
+        progressColor="#057D9F"
+        action="Add"
+        backgroundColor="primary-100"
+        icon={<PlusIcon color="#663400" />}
+        iconBackgroundColor={'primary-400'}
+        headerColor={'primary-400'}
+        buttonVariant='secondaryOutlined'
+      />
     </div>
   );
 }

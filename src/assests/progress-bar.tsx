@@ -15,6 +15,7 @@ const ProgressBar = ({ color, percentage }: ProgressBarProps) => {
     width: `${percentage}%`,
     backgroundColor: color,
     height: '100%',
+    borderRadius: '4px',
   };
 
   return (

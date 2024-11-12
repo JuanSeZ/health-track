@@ -23,9 +23,6 @@ const cardVariant = cva(
         progressRing: ['relative'],
         progressBar: ['relative'],
         pill: [
-          'bg-primary-100',
-          'text-primary-400',
-          'rounded-full',
           'px-4',
           'py-2',
         ],
@@ -48,7 +45,11 @@ export interface CardProps extends VariantProps<typeof cardVariant> {
   iconBackgroundColor?: string;
   percentage?: number;
   progressColor?: string;
-  buttonVariant: 'primary' | 'primaryOutlined' | 'primaryDark' | 'secondaryOutlined';
+  buttonVariant:
+    | 'primary'
+    | 'primaryOutlined'
+    | 'primaryDark'
+    | 'secondaryOutlined';
   icon?: ReactNode;
   action?: ReactNode;
 }
@@ -79,19 +80,21 @@ const Card = ({
         </div>
 
         {title && (
-          <div className="flex flex-col gap-5 max-h-fit px-2.5 py-2 w-full">
+          <div
+            className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
+          >
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
                 {title && (
-                  <text className={`text-h3 text-${headerColor}`}>{title}</text>
+                  <text className={`${variant === 'pill' ? 'text-h4' : 'text-h3'} text-${headerColor}`}>{title}</text>
                 )}
-                {subtitle && (
+                {variant !== 'pill' && subtitle && (
                   <text className={`text-h6 text-left text-${headerColor}`}>
                     {subtitle}
                   </text>
                 )}
               </div>
-              {icon && (
+              {variant !== 'pill' && icon && (
                 <div
                   className={`icon bg-${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
                 >
@@ -99,18 +102,18 @@ const Card = ({
                 </div>
               )}
             </div>
-            {description && (
+            {variant !== 'pill' && description && (
               <div className={`text-left text-m1 text-${descriptionColor}`}>
                 {description}
               </div>
             )}
             {action && (
-              <div className="ml-auto">
+              <div className={`${variant === 'pill' ? 'ml-0' : 'ml-auto'}`}>
                 <Button
                   label="Add"
-                  leftIcon={<PlusIcon color={iconColor}/>}
+                  leftIcon={<PlusIcon color={iconColor} />}
                   variant={buttonVariant}
-                  size='medium'
+                  size="medium"
                 />
               </div>
             )}
