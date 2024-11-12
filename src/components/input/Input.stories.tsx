@@ -15,21 +15,12 @@ const meta = {
         'default',
         'withIcon',
         'redStroke',
-        'time',
       ],
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
     },
     // Ideally we would want to add list of Icons here, I couldn't find a way to do that
     rightIcon: {
       control: 'boolean',
-      description: 'Display Plus icon on the left',
-    },
-    style: {
-      control: 'color',
-      description: 'Background color of the button',
+      description: 'Display Cross icon on the right',
     },
   },
   args: {
@@ -37,7 +28,6 @@ const meta = {
     variant: 'default',
     placeholder: 'Enter text',
     rightIcon: false,
-    duration: '1 hour',
   },
 } satisfies Meta<typeof Input>;
 

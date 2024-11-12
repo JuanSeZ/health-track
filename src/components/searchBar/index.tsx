@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cva } from 'class-variance-authority';
 import SearchIcon from '../../assests/search-icon.svg'
 
-const searchBoxStyles = cva([
+const searchBarStyles = cva([
   'w-[343px]',
   'h-[44px]',
   'pt-[10px]',
@@ -32,11 +32,11 @@ const inputStyles = cva([
 ]);
 
 // Define the component
-const SearchBox: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+const SearchBar: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
   const [placeholder, setPlaceholder] = useState('Search...');
 
   return (
-    <div className={searchBoxStyles()}>
+    <div className={searchBarStyles()}>
       <div>
         <SearchIcon/>
       </div>
@@ -52,4 +52,4 @@ const SearchBox: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props)
   );
 };
 
-export default SearchBox;
+export default SearchBar;

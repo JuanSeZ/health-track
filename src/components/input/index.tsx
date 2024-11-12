@@ -14,7 +14,6 @@ const inputVariant = cva(
     'text-base',
     'font-medium',
     'placeholder-black',
-    'font-montserrat',
     'pt-6',
     'bg-[#F5F8F9]',
   ],
@@ -38,7 +37,6 @@ export interface InputProps
   label?: string;   // Label is optional
   placeholder?: string;  // Placeholder is optional
   rightIcon?: boolean;  // Right icon for the new variant
-  duration?: string;
 }
 
 const Input = ({
@@ -66,7 +64,7 @@ const Input = ({
     <div className="relative w-[261px] h-[40px] bg-[#F5F8F9] rounded-[10px]">
       {label && (
         <label
-          className="absolute left-3 text-sm font-medium pointer-events-none z-10 font-montserrat"
+          className="absolute left-3 text-sm font-medium pointer-events-none z-10"
           style={{ color: 'rgba(165, 164, 164, 0.5)' }}
         >
           {label}
