@@ -1,16 +1,10 @@
 import './App.css';
-import Button from './components/button';
-import PlusIcon from './assests/plus-icon.svg';
+import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className="m-6">
-      <Button
-        variant="primary"
-        size="small"
-        label='Button'
-        leftIcon={<PlusIcon />}
-      />
+    <div>
+      <Navbar />
     </div>
   );
 }
