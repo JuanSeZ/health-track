@@ -1,17 +1,11 @@
 import './App.css';
 import Button from './components/button';
 import PlusIcon from './assests/plus-icon.svg';
+import Input from './components/input';
 
 function App() {
   return (
-    <div className="m-6">
-      <Button
-        variant="primary"
-        size="small"
-        label='Button'
-        leftIcon={<PlusIcon />}
-      />
-    </div>
+      <Input variant='withIcon' label='Name' placeholder='Type your name' rightIcon={true} />
   );
 }
 

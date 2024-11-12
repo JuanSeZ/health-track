@@ -75,4 +75,3 @@ export const RedStroke: Story = {
     <Input {...args}  />
   ),
 };
-//Time variant missing
