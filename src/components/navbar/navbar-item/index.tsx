@@ -8,7 +8,7 @@ const navbarItemVariant = cva(
     'items-center',
     'w-[52px]',
     'cursor-pointer',
-    'text-primary-400',
+    'text-primary-600',
     'text-label',
     'justify-end',
   ],

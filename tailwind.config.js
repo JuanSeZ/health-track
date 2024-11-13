@@ -4,13 +4,15 @@ export default {
   theme: {
     colors: {
       primary: {
-        100: '#d7eff5',
-        200: '#88cee2',
-        300: '#39aecf',
-        400: '#057D9F',
-        500: '#287a91',
-        600: '#04586f',
-        700: '#023240',
+        100: '#F5F8F9',
+        200: '#E7F5F9',
+        300: '#d7eff5',
+        400: '#88cee2',
+        500: '#39aecf',
+        600: '#057D9F',
+        700: '#287a91',
+        800: '#04586f',
+        900: '#023240',
       },
       secondary: {
         100: '#FFE6CC',
@@ -42,6 +44,9 @@ export default {
       warning: '#FFCC00',
       grey: '#A5A4A4',
       darkGrey: '#969AA3',
+      yellowCard: '#E3B600',
+      purpleCard: '#9747FF',
+      logOut: '#FF0000'
     },
     extend: {},
     fontSize: {
@@ -57,6 +62,7 @@ export default {
       label: '14px',
       m1: '14px',
       m2: '11.11px',
+      'home-title': '32px',
     },
     fontFamily: {
       sans: [

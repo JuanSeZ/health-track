@@ -17,8 +17,8 @@ const cardButtonVariant = cva([
 ],{
   variants: {
     variant: {
-      selected: ["bg-primary-200"],
-      unselected: ["bg-primary-100"],
+      selected: ["bg-primary-400"],
+      unselected: ["bg-primary-300"],
     }
   },
   defaultVariants: {
@@ -41,7 +41,7 @@ const numberVariant = cva(
     variants: {
       variant: {
         selected: ["text-white"],
-        unselected: ["text-primary-500"],
+        unselected: ["text-primary-700"],
       },
     },
     defaultVariants: {
@@ -63,8 +63,8 @@ const dayNameVariant = cva(
   {
     variants: {
       variant: {
-        selected: ["text-primary-400 font-light"],
-        unselected: ["text-primary-500 font-extralight"],
+        selected: ["text-primary-600 font-light"],
+        unselected: ["text-primary-700 font-extralight"],
       },
     },
     defaultVariants: {

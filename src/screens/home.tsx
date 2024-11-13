@@ -35,9 +35,9 @@ export const Home = () => {
           icon={<WaterDropIcon color="#39AECF" />}
           percentage={85}
           progressColor="#39AECF"
-          backgroundColor="bg-primary-100"
-          iconBackgroundColor="bg-primary-200"
-          headerColor="primary-400"
+          backgroundColor="bg-primary-300"
+          iconBackgroundColor="bg-primary-400"
+          headerColor="primary-600"
         />
         <Card
           variant="progressRing"
