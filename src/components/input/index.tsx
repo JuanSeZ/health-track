@@ -1,7 +1,6 @@
-import { InputHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
-import RightArrowIcon from '../../assests/right-arrow-icon.svg';
 import CrossIcon from '../../assests/input-cross-icon.svg';
 
 const inputVariant = cva(
