@@ -40,7 +40,7 @@ const Calendar = () => {
       title: 'Water',
       variant: 'progressBar' as const,
       icon: <WaterDropIcon color={'#39aecf'} />,
-      iconBackgroundColor: 'bg-primary-200 bg-opacity-50',
+      iconBackgroundColor: 'bg-primary-400 bg-opacity-50',
       descriptionColor: 'primary-400',
       headerColor: 'primary-400',
       backgroundColor: 'bg-primary-600 bg-opacity-10',
