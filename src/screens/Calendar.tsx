@@ -43,7 +43,7 @@ const Calendar = () => {
       iconBackgroundColor: 'bg-primary-200 bg-opacity-50',
       descriptionColor: 'primary-400',
       headerColor: 'primary-400',
-      backgroundColor: 'bg-primary-400 bg-opacity-10',
+      backgroundColor: 'bg-primary-600 bg-opacity-10',
     },
     {
       buttonVariant: 'primary' as const,
@@ -62,7 +62,7 @@ const Calendar = () => {
       percentage: 100,
       progressColor: '#74C476',
       subtitle: 'Tafirol 1g',
-      title: 'Pills',
+      title: 'Pill',
       icon: <PillIcon color={'#74C476'} />,
       variant: 'progressBar' as const,
       iconColor: '#003bff',

@@ -76,7 +76,8 @@ const Card = ({
             <ProgressRing percentage={percentage} color={progressColor} />
           )}
         </div>
-
+        <div className="text-primary-400" />
+        <div className="text-tertiary-500" />
         {(title || description) && (
           <div
             className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
@@ -84,11 +85,11 @@ const Card = ({
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
                 {title && (
-                  <text
-                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor}`}
+                  <p
+                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor} text-left`}
                   >
                     {title}
-                  </text>
+                  </p>
                 )}
                 {variant !== 'pill' && subtitle && (
                   <text className={`text-h6 text-left text-${headerColor}`}>
