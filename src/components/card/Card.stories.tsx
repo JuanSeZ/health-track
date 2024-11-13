@@ -156,3 +156,13 @@ export const Pill: Story = {
     action: 'Add',
   },
 };
+
+export const Appointment: Story = {
+  args: {
+    variant: 'appointment',
+    title: 'Doctor’s appointment',
+    subtitle: 'Hospital Austral, 15:00',
+    backgroundColor: 'grey',
+    description: '',
+  },
+};

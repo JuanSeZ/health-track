@@ -2,6 +2,8 @@ import Card from '../components/card';
 import WaterDropIcon from '../assests/water-drop-icon.tsx';
 import FireIcon from '../assests/fire-icon.tsx';
 import Logo from '../assests/logo.svg';
+import Navbar from '../components/navbar';
+import { NavBarItemType } from '../components/navbar/Navbar.stories.tsx';
 
 export const Home = () => {
   return (
@@ -10,7 +12,7 @@ export const Home = () => {
         <Logo />
       </div>
       <div className="text-left flex flex-col">
-        <span className="text-h3 font-regular">Good morning,</span>
+        <span className="text-h3 font-sans font-regular">Good morning,</span>
         <span className="text-h3 font-bold">Sofía</span>
       </div>
       <div className="flex w-full flex-col gap-4">
@@ -33,9 +35,9 @@ export const Home = () => {
           icon={<WaterDropIcon color="#39AECF" />}
           percentage={85}
           progressColor="#39AECF"
-          backgroundColor="bg-primary-100"
-          iconBackgroundColor="bg-primary-200"
-          headerColor="primary-400"
+          backgroundColor="bg-primary-300"
+          iconBackgroundColor="bg-primary-400"
+          headerColor="primary-600"
         />
         <Card
           variant="progressRing"
@@ -51,8 +53,8 @@ export const Home = () => {
           headerColor="secondary-400"
         />
         <Card
-          variant="default"
-          title="Doctors's appointment"
+          variant="appointment"
+          title="Doctor's appointment"
           subtitle="Hospital Austral, 15:00"
           backgroundColor="bg-grey"
         />

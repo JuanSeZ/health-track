@@ -15,13 +15,13 @@ const buttonVariant = cva(
   {
     variants: {
       variant: {
-        primary: ['bg-primary-400 text-white'],
+        primary: ['bg-primary-600 text-white'],
         primaryOutlined: [
-          'bg-white text-primary-400 border border-primary-400',
+          'text-primary-600 border border-primary-600',
         ],
-        primaryDark: ['bg-primary-700 text-white'],
+        primaryDark: ['bg-primary-900 text-white'],
         secondaryOutlined: [
-          'bg-white text-secondary-400 border border-secondary-400',
+          'text-secondary-400 border border-secondary-400',
         ],
       },
       size: {

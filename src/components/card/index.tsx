@@ -23,6 +23,7 @@ const cardVariant = cva(
         progressRing: ['relative'],
         progressBar: ['relative'],
         pill: ['px-4', 'py-2'],
+        appointment: [],
       },
     },
     defaultVariants: {
@@ -84,7 +85,7 @@ const Card = ({
               <div className="flex flex-col">
                 {title && (
                   <text
-                    className={`${variant === 'pill' || variant === 'default' ? 'text-h4' : 'text-h3'} text-${headerColor}`}
+                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor}`}
                   >
                     {title}
                   </text>
