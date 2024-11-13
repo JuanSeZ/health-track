@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './components/navbar';
+import QuantityInput from './components/quantity-input';
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <QuantityInput />
     </div>
   );
 }
