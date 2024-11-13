@@ -14,7 +14,7 @@ const cardVariant = cva(
     'flex-col',
     'justify-between',
     'gap-[8px]',
-    'w-[350px]',
+    'min-w-[350px]',
   ],
   {
     variants: {
@@ -68,18 +68,50 @@ const Card = ({
   buttonVariant,
   icon,
   action,
-  classname
+  classname,
 }: CardProps) => {
   return (
-    <div className={`${cardVariant({ variant })} ${backgroundColor} ${classname}`}>
+    <div
+      className={`${cardVariant({ variant })} ${backgroundColor} ${classname}`}
+    >
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
             <ProgressRing percentage={percentage} color={progressColor} />
           )}
         </div>
+        <div className="text-primary-100" />
+        <div className="text-primary-200" />
+        <div className="text-primary-300" />
         <div className="text-primary-400" />
+        <div className="text-primary-500" />
+        <div className="text-primary-600" />
+        <div className="text-secondary-100" />
+        <div className="text-secondary-200" />
+        <div className="text-secondary-300" />
+        <div className="text-secondary-400" />
+        <div className="text-secondary-500" />
+        <div className="text-tertiary-200" />
+        <div className="text-tertiary-300" />
+        <div className="text-tertiary-400" />
         <div className="text-tertiary-500" />
+
+        <div className="bg-primary-100" />
+        <div className="bg-primary-200" />
+        <div className="bg-primary-300" />
+        <div className="bg-primary-400" />
+        <div className="bg-primary-500" />
+        <div className="bg-primary-600" />
+        <div className="bg-secondary-100" />
+        <div className="bg-secondary-200" />
+        <div className="bg-secondary-300" />
+        <div className="bg-secondary-400" />
+        <div className="bg-secondary-500" />
+        <div className="bg-tertiary-200" />
+        <div className="bg-tertiary-300" />
+        <div className="bg-tertiary-400" />
+        <div className="bg-tertiary-500" />
+
         {(title || description) && (
           <div
             className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
@@ -88,7 +120,7 @@ const Card = ({
               <div className="flex flex-col">
                 {title && (
                   <p
-                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor} text-left`}
+                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor} text-left w-auto`}
                   >
                     {title}
                   </p>
