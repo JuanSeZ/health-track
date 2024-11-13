@@ -53,12 +53,11 @@ export const Home = () => {
           headerColor="secondary-400"
         />
         <Card
-          variant="default"
-          subtitle="Doctor's appointment"
-          description="Hospital Austral, 15:00"
+          variant="appointment"
+          title="Doctor's appointment"
+          subtitle="Hospital Austral, 15:00"
           backgroundColor="bg-grey"
         />
-        <Navbar activeItem={NavBarItemType.Home} />
       </div>
     </div>
   );
