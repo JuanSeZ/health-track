@@ -11,9 +11,10 @@ const searchBarStyles = cva([
   'pr-[165px]',
   'rounded-[16px]',
   'border',
-  'border-[rgba(150,154,163,0.30)]',
+  'border-lightgrey',
   'inline-flex',
   'items-center',
+  'font-sans',
   'gap-[10px]', // Gap between the icon and input
 ]);
 
@@ -21,14 +22,13 @@ const inputStyles = cva([
   'w-full',
   'h-full',
   'bg-transparent',
-  'text-[rgba(150,154,163,0.30)]',
+  'text-black',
   'text-body',
-  'font-montserrat',
   'font-medium',
   'outline-none',
   'placeholder:text-body',
-  'placeholder-rgba(165, 164, 164, 0.5)',
-  'text-black'
+  'placeholder-lightgrey',
+  'font-sans'
 ]);
 
 // Define the component

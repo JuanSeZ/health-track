@@ -32,18 +32,14 @@ export const Toasts = ({ variant }: ToastsProps) => {
   return (
     <div className={cardButtonVariant({ variant })}>
       <div className="flex items-center gap-[8px] ml-[10px]">
-        {' '}
-        {/* Wrap icon and text together */}
         {variant === 'success' ? (
           <Check className="stroke-white mb-5" />
         ) : (
-          <ErrorToastIcon className="stroke-white mb-5" />
+          <ErrorToastIcon className="stroke-white mb-5 ml-[2px]" />
         )}
         <div className="flex flex-col gap-[2px]">
-          {' '}
-          {/* Reduced gap */}
-          <div className="font-semibold text-body">Title</div>
-          <div className="font-light text-m1">Description</div>
+          <div className="font-semibold text-body font-sans">Title</div>
+          <div className="font-light text-m1 font-sans">Description</div>
         </div>
       </div>
       <div className="mr-[19px] mt-[18px] mb-[41px] fill-black flex justify-end">

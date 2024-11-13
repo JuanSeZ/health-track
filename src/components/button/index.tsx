@@ -11,6 +11,8 @@ const buttonVariant = cva(
     'gap-[8px]',
     'flex-shrink-0',
     'text-body-bold',
+    'font-sans',
+    'font-bold'
   ],
   {
     variants: {

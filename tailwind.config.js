@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// @type {import('tailwindcss').Config}
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,svg}'],
   theme: {
@@ -42,6 +42,7 @@ export default {
       error_border: '#F4B0A1',
       // It has a 40% transparency
       warning: '#FFCC00',
+      lightgrey: '#D2D2D2',
       grey: '#A5A4A4',
       darkGrey: '#969AA3',
       yellowCard: '#E3B600',
@@ -65,8 +66,7 @@ export default {
       'home-title': '32px',
     },
     fontFamily: {
-      sans: ['Montserrat', 'sans-serif', 'system-ui', '-apple-system'],
-      handwriting: ['Montserrat', 'system-ui', '-apple-system'],
+      sans: ['Montserrat', 'system-ui', 'sans-serif'],
     },
     fontWeight: {
       thin: 100,

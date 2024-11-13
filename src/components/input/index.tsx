@@ -5,13 +5,15 @@ import CrossIcon from '../../assests/input-cross-icon.svg';
 
 const inputVariant = cva(
   [
-    'relative', // Ensure input container is relative
+    'relative',
     'rounded-[10px]',
-    'w-[261px]', // Width from Figma
+    'w-[261px]',
     'h-[45px]',
     'p-3',
     'text-base',
     'font-medium',
+    'text-body',
+    'font-sans',
     'placeholder-black',
     'pt-6',
     'bg-[#F5F8F9]',
@@ -20,13 +22,14 @@ const inputVariant = cva(
     variants: {
       variant: {
         default: ['text-black'],
-        withIcon: ['text-black'], // Add padding for the icon on the right in the new variant
+        withIcon: ['text-black'],
         redStroke: [
           'border',
           'border-error',
           'border-[0.5px]',
           'placeholder-black',
-        ], // New variant with red stroke
+        ],
+        time: ['flex', 'items-center', 'justify-between', 'gap-2', 'w-[75px]'],
       },
     },
     defaultVariants: {
@@ -36,9 +39,9 @@ const inputVariant = cva(
 );
 
 export interface InputProps extends VariantProps<typeof inputVariant> {
-  label?: string; // Label is optional
-  placeholder?: string; // Placeholder is optional
-  rightIcon?: boolean; // Right icon for the new variant
+  label?: string;
+  placeholder?: string;
+  rightIcon?: boolean;
 }
 
 const Input = ({
@@ -51,13 +54,12 @@ const Input = ({
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  // Handle focus and blur events to toggle placeholder visibility
   const handleFocus = () => {
     setIsFocused(true);
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsFocused(e.target.value !== ''); // Only show the placeholder if the input is empty
+    setIsFocused(e.target.value !== '');
     setIsFocused(false);
   };
 
@@ -65,7 +67,7 @@ const Input = ({
     <div className="relative w-[261px] h-[40px] bg-[#F5F8F9] rounded-[10px]">
       {label && (
         <label
-          className="absolute left-3 text-label font-medium pointer-events-none z-10"
+          className="absolute left-3 text-sm font-regular text-label pointer-events-none z-10 font-sans"
           style={{ color: 'rgba(165, 164, 164, 0.5)' }}
         >
           {label}
@@ -73,7 +75,7 @@ const Input = ({
       )}
       <input
         className={clsx(inputVariant({ variant, size }), 'z-0')}
-        placeholder={isFocused ? '' : placeholder} // Hide placeholder on focus
+        placeholder={isFocused ? '' : placeholder}
         onFocus={handleFocus}
         onBlur={handleBlur}
         {...rest}

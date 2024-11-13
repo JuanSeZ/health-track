@@ -13,7 +13,7 @@ const cardButtonVariant = cva(
     'overflow-hidden',
     'rounded-[27px]',
     'relative',
-    "[font-family:'Montserrat-Light',Helvetica]",
+    'font-sans',
     'pt-[16px] pb-[12.94px] px-[15px]',
   ],
   {
@@ -37,8 +37,8 @@ const numberVariant = cva(
     'h-[30px]',
     'font-normal',
     'text-center',
-    'font-light',
-    "[font-family:'Montserrat-Light',Helvetica]",
+    'font-extralight',
+    'font-sans'
   ],
   {
     variants: {
@@ -62,7 +62,8 @@ const dayNameVariant = cva(
     'tracking-[0]',
     'h-[11px]',
     'leading-[normal]',
-    "[font-family:'Montserrat-Light']",
+    'font-light',
+    'font-sans',
   ],
   {
     variants: {

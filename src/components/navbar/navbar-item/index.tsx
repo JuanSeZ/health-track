@@ -11,13 +11,14 @@ const navbarItemVariant = cva(
     'text-primary-600',
     'text-label',
     'justify-end',
+    'font-sans'
   ],
   {
     variants: {
       variant: {
-        default: 'h-[52px]',
+        default: 'h-[52px] font-medium',
         active: 'h-[52px] font-semibold',
-        main: 'h-[80px]',
+        main: 'h-[80px] font-medium',
         mainActive: 'h-[80px] font-semibold',
       },
     },
