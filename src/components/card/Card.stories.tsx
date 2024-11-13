@@ -117,8 +117,11 @@ export const ProgressRing: Story = {
     percentage: 75,
     headerColor: 'black',
     progressColor: '#003bff',
+    icon: true,
   },
-  render: (args) => <Card {...args} icon={<PlusIcon color="black" />} />,
+  render: (args) => (
+    <Card {...args} icon={args.icon ? <PlusIcon color="black" /> : undefined} />
+  ),
 };
 
 export const ProgressBar: Story = {
@@ -126,10 +129,12 @@ export const ProgressBar: Story = {
     variant: 'progressBar',
     percentage: 60,
     progressColor: '#003bff',
+    icon: true,
   },
   render: (args) => (
     <Card
       {...args}
+      icon={args.icon ? <PlusIcon color="black" /> : undefined}
       action={
         args.action ? (
           <Button

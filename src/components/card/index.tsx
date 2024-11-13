@@ -14,7 +14,7 @@ const cardVariant = cva(
     'flex-col',
     'justify-between',
     'gap-[8px]',
-    'w-[343px]',
+    'w-[350px]',
   ],
   {
     variants: {
@@ -45,7 +45,7 @@ export interface CardProps extends VariantProps<typeof cardVariant> {
   iconBackgroundColor?: string;
   percentage?: number;
   progressColor?: string;
-  buttonVariant:
+  buttonVariant?:
     | 'primary'
     | 'primaryOutlined'
     | 'primaryDark'
@@ -71,7 +71,7 @@ const Card = ({
   action,
 }: CardProps) => {
   return (
-    <div className={`${cardVariant({ variant })} bg-${backgroundColor}`}>
+    <div className={`${cardVariant({ variant })} ${backgroundColor}`}>
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
@@ -86,7 +86,11 @@ const Card = ({
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
                 {title && (
-                  <text className={`${variant === 'pill' ? 'text-h4' : 'text-h3'} text-${headerColor}`}>{title}</text>
+                  <text
+                    className={`${variant === 'pill' || variant === 'default' ? 'text-h4' : 'text-h3'} text-${headerColor}`}
+                  >
+                    {title}
+                  </text>
                 )}
                 {variant !== 'pill' && subtitle && (
                   <text className={`text-h6 text-left text-${headerColor}`}>
@@ -96,7 +100,7 @@ const Card = ({
               </div>
               {variant !== 'pill' && icon && (
                 <div
-                  className={`icon bg-${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
+                  className={`icon ${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
                 >
                   {icon}
                 </div>
