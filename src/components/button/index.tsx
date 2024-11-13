@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const buttonVariant = cva(
@@ -53,13 +53,23 @@ const Button = ({
   onClick,
   ...rest
 }: ButtonProps) => {
+  let iconColor;
+  if (variant === 'primaryOutlined') {
+    iconColor = '#057D9F';
+  } else if (variant === 'secondaryOutlined') {
+    iconColor = '#FF8100';
+  }
+  else {
+    iconColor = 'white';
+  }
+
   return (
     <button
       className={buttonVariant({ size, variant })}
       onClick={onClick}
       {...rest}
     >
-      {leftIcon}
+      {leftIcon && React.cloneElement(leftIcon as React.ReactElement, { color: iconColor })}
       {label}
     </button>
   );

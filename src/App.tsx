@@ -1,10 +1,10 @@
 import './App.css';
-import QuantityInput from './components/quantity-input';
+import Navbar from './components/navbar/index.tsx';
 
 function App() {
   return (
     <div>
-      <QuantityInput />
+      <Navbar />
     </div>
   );
 }
