@@ -1,10 +1,9 @@
 import './App.css';
-import Navbar from './components/navbar/index.tsx';
-
+import Calendar from './screens/Calendar.tsx';
 function App() {
   return (
     <div>
-      <Navbar />
+      <Calendar />
     </div>
   );
 }

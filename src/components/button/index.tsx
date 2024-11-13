@@ -58,8 +58,7 @@ const Button = ({
     iconColor = '#057D9F';
   } else if (variant === 'secondaryOutlined') {
     iconColor = '#FF8100';
-  }
-  else {
+  } else {
     iconColor = 'white';
   }
 
@@ -69,7 +68,10 @@ const Button = ({
       onClick={onClick}
       {...rest}
     >
-      {leftIcon && React.cloneElement(leftIcon as React.ReactElement, { color: iconColor })}
+      {leftIcon &&
+        React.cloneElement(leftIcon as React.ReactElement, {
+          color: iconColor,
+        })}
       {label}
     </button>
   );

@@ -59,16 +59,8 @@ export default {
       m2: '11.11px',
     },
     fontFamily: {
-      sans: [
-        "Montserrat",
-        "system-ui",
-        "-apple-system",
-      ],
-      handwriting: [
-        "Montserrat",
-        "system-ui",
-        "-apple-system",
-      ],
+      sans: ['Montserrat', 'system-ui', '-apple-system'],
+      handwriting: ['Montserrat', 'system-ui', '-apple-system'],
     },
     fontWeight: {
       thin: 100,

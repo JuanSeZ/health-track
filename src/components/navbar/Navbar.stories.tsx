@@ -1,13 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Navbar from './index.tsx';
-
-export enum NavBarItemType {
-  Home = 'Home',
-  Inventory = 'Inventory',
-  Pills = 'Pills',
-  Calendar = 'Calendar',
-  Profile = 'Profile',
-}
+import Navbar, { NavBarItemType } from './index.tsx';
 
 const meta = {
   title: 'Components/Navbar',

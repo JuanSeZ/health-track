@@ -22,10 +22,7 @@ const cardVariant = cva(
         default: [],
         progressRing: ['relative'],
         progressBar: ['relative'],
-        pill: [
-          'px-4',
-          'py-2',
-        ],
+        pill: ['px-4', 'py-2'],
       },
     },
     defaultVariants: {
