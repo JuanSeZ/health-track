@@ -97,6 +97,7 @@ export const Default: Story = {
     <Card
       {...args}
       icon={args.icon ? <PlusIcon /> : undefined}
+      backgroundColor={`bg-${args.backgroundColor}`}
       action={
         args.action ? (
           <Button
@@ -115,12 +116,21 @@ export const ProgressRing: Story = {
   args: {
     variant: 'progressRing',
     percentage: 75,
-    headerColor: 'black',
-    progressColor: '#003bff',
+    progressColor: '#39AECF',
     icon: true,
+    backgroundColor: 'primary-300',
+    iconColor: 'primary-600',
+    iconBackgroundColor: 'primary-600',
   },
   render: (args) => (
-    <Card {...args} icon={args.icon ? <PlusIcon color="black" /> : undefined} />
+    <Card
+      {...args}
+      icon={args.icon ? <PlusIcon color="black" /> : undefined}
+      backgroundColor={`bg-${args.backgroundColor}`}
+      headerColor={`text-primary-100`}
+      iconBackgroundColor={`bg-${args.backgroundColor}`}
+      iconColor={args.iconColor}
+    />
   ),
 };
 
@@ -128,13 +138,15 @@ export const ProgressBar: Story = {
   args: {
     variant: 'progressBar',
     percentage: 60,
-    progressColor: '#003bff',
+    progressColor: '#39AECF',
+    backgroundColor: 'primary-300',
     icon: true,
   },
   render: (args) => (
     <Card
       {...args}
       icon={args.icon ? <PlusIcon color="black" /> : undefined}
+      backgroundColor={`bg-${args.backgroundColor}`}
       action={
         args.action ? (
           <Button
@@ -165,4 +177,7 @@ export const Appointment: Story = {
     backgroundColor: 'grey',
     description: '',
   },
+  render: (args) => (
+    <Card {...args} backgroundColor={`bg-${args.backgroundColor}`} />
+  ),
 };
