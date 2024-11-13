@@ -50,6 +50,7 @@ export interface CardProps extends VariantProps<typeof cardVariant> {
     | 'secondaryOutlined';
   icon?: ReactNode;
   action?: ReactNode;
+  classname?: string;
 }
 
 const Card = ({
@@ -67,9 +68,10 @@ const Card = ({
   buttonVariant,
   icon,
   action,
+  classname
 }: CardProps) => {
   return (
-    <div className={`${cardVariant({ variant })} ${backgroundColor}`}>
+    <div className={`${cardVariant({ variant })} ${backgroundColor} ${classname}`}>
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
