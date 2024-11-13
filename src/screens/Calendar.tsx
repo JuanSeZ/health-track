@@ -108,7 +108,9 @@ const Calendar = () => {
             />
           ))}
         </div>
-        <Navbar activeItem={NavBarItemType.Calendar} />
+        <div className="flex justify-center">
+          <Navbar activeItem={NavBarItemType.Calendar} />
+        </div>
       </div>
     </div>
   );
