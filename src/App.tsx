@@ -7,11 +7,8 @@ function App() {
     <div>
       {/*<Navbar />*/}
       <Card
-        title="Water"
-        variant="pill"
-        percentage={50}
-        progressColor="#057D9F"
-        action="Add"
+        variant="default"
+        description='This is a card component'
         backgroundColor="primary-100"
         icon={<PlusIcon color="#663400" />}
         iconBackgroundColor={'primary-400'}

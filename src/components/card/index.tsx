@@ -14,7 +14,7 @@ const cardVariant = cva(
     'flex-col',
     'justify-between',
     'gap-[8px]',
-    'w-full',
+    'w-[343px]',
   ],
   {
     variants: {
@@ -79,7 +79,7 @@ const Card = ({
           )}
         </div>
 
-        {title && (
+        {(title || description) && (
           <div
             className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
           >

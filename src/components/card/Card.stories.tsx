@@ -57,7 +57,12 @@ const meta: Meta<typeof Card> = {
     },
     buttonVariant: {
       control: 'select',
-      options: ['primary', 'primaryOutlined', 'primaryDark', 'secondaryOutlined'],
+      options: [
+        'primary',
+        'primaryOutlined',
+        'primaryDark',
+        'secondaryOutlined',
+      ],
       description: 'Button variant for the action button',
     },
     icon: {
@@ -71,7 +76,7 @@ const meta: Meta<typeof Card> = {
   },
   args: {
     variant: 'default',
-    title: 'Card Title',
+    title: 'Title',
     subtitle: 'Subtitle',
     description: 'This is a sample card description.',
     buttonVariant: 'primary',
@@ -94,7 +99,12 @@ export const Default: Story = {
       icon={args.icon ? <PlusIcon /> : undefined}
       action={
         args.action ? (
-          <Button label="Add" leftIcon={<PlusIcon />} variant={args.buttonVariant} size="medium" />
+          <Button
+            label="Add"
+            leftIcon={<PlusIcon />}
+            variant={args.buttonVariant}
+            size="medium"
+          />
         ) : undefined
       }
     />
@@ -105,26 +115,29 @@ export const ProgressRing: Story = {
   args: {
     variant: 'progressRing',
     percentage: 75,
+    headerColor: 'black',
+    progressColor: '#003bff',
   },
-  render: (args) => (
-    <Card
-      {...args}
-      icon={<PlusIcon color='black' />}
-    />
-  ),
+  render: (args) => <Card {...args} icon={<PlusIcon color="black" />} />,
 };
 
 export const ProgressBar: Story = {
   args: {
     variant: 'progressBar',
     percentage: 60,
+    progressColor: '#003bff',
   },
   render: (args) => (
     <Card
       {...args}
       action={
         args.action ? (
-          <Button label="Add" leftIcon={<PlusIcon />} variant={args.buttonVariant} size="medium" />
+          <Button
+            label="Add"
+            leftIcon={<PlusIcon />}
+            variant={args.buttonVariant}
+            size="medium"
+          />
         ) : undefined
       }
     />
@@ -134,7 +147,7 @@ export const ProgressBar: Story = {
 export const Pill: Story = {
   args: {
     variant: 'pill',
-    title: 'Pill Card',
-    action: "Add",
+    title: 'Pill',
+    action: 'Add',
   },
 };
