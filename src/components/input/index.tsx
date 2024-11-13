@@ -6,9 +6,9 @@ import CrossIcon from '../../assests/input-cross-icon.svg';
 
 const inputVariant = cva(
   [
-    'relative',            // Ensure input container is relative
+    'relative', // Ensure input container is relative
     'rounded-[10px]',
-    'w-[261px]',  // Width from Figma
+    'w-[261px]', // Width from Figma
     'h-[45px]',
     'p-3',
     'text-base',
@@ -22,30 +22,34 @@ const inputVariant = cva(
       variant: {
         default: ['text-black'],
         withIcon: ['text-black'], // Add padding for the icon on the right in the new variant
-        redStroke: ['border', 'border-error', 'border-[0.5px]', 'placeholder-black'], // New variant with red stroke
+        redStroke: [
+          'border',
+          'border-error',
+          'border-[0.5px]',
+          'placeholder-black',
+        ], // New variant with red stroke
       },
     },
     defaultVariants: {
       variant: 'default',
     },
-  },
+  }
 );
 
-export interface InputProps
-  extends VariantProps<typeof inputVariant> {
-  label?: string;   // Label is optional
-  placeholder?: string;  // Placeholder is optional
-  rightIcon?: boolean;  // Right icon for the new variant
+export interface InputProps extends VariantProps<typeof inputVariant> {
+  label?: string; // Label is optional
+  placeholder?: string; // Placeholder is optional
+  rightIcon?: boolean; // Right icon for the new variant
 }
 
 const Input = ({
-                 variant,
-                 size,
-                 label,
-                 placeholder,
-                 rightIcon,
-                 ...rest
-               }: InputProps) => {
+  variant,
+  size,
+  label,
+  placeholder,
+  rightIcon,
+  ...rest
+}: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   // Handle focus and blur events to toggle placeholder visibility
@@ -57,7 +61,6 @@ const Input = ({
     setIsFocused(e.target.value !== ''); // Only show the placeholder if the input is empty
     setIsFocused(false);
   };
-
 
   return (
     <div className="relative w-[261px] h-[40px] bg-[#F5F8F9] rounded-[10px]">
@@ -78,12 +81,11 @@ const Input = ({
       />
       {rightIcon && (
         <div className="absolute right-3 top-[50%] transform -translate-y-[35%] z-10">
-          <CrossIcon  />
+          <CrossIcon />
         </div>
       )}
     </div>
   );
 };
-
 
 export default Input;

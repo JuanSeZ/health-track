@@ -7,10 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: [
-        'unselected',
-        'selected',
-      ],
+      options: ['unselected', 'selected'],
       control: { type: 'select' },
     },
     number: {
@@ -32,7 +29,11 @@ export const Selected: Story = {
     variant: 'selected',
   },
   render: (args) => (
-    <CalendarDate variant={args.variant} number={args.number} dayName={args.dayName} />
+    <CalendarDate
+      variant={args.variant}
+      number={args.number}
+      dayName={args.dayName}
+    />
   ),
 };
 
@@ -43,6 +44,10 @@ export const Unselected: Story = {
     variant: 'selected',
   },
   render: (args) => (
-    <CalendarDate variant={args.variant} number={args.number} dayName={args.dayName} />
+    <CalendarDate
+      variant={args.variant}
+      number={args.number}
+      dayName={args.dayName}
+    />
   ),
 };

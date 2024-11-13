@@ -46,7 +46,7 @@ export default {
       darkGrey: '#969AA3',
       yellowCard: '#E3B600',
       purpleCard: '#9747FF',
-      logOut: '#FF0000'
+      logOut: '#FF0000',
     },
     extend: {},
     fontSize: {
@@ -65,17 +65,8 @@ export default {
       'home-title': '32px',
     },
     fontFamily: {
-      sans: [
-        "Montserrat",
-        "sans-serif",
-        "system-ui",
-        "-apple-system",
-      ],
-      handwriting: [
-        "Montserrat",
-        "system-ui",
-        "-apple-system",
-      ],
+      sans: ['Montserrat', 'sans-serif', 'system-ui', '-apple-system'],
+      handwriting: ['Montserrat', 'system-ui', '-apple-system'],
     },
     fontWeight: {
       thin: 100,

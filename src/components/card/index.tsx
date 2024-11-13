@@ -22,10 +22,8 @@ const cardVariant = cva(
         default: [],
         progressRing: ['relative'],
         progressBar: ['relative'],
-        pill: [
-          'px-4',
-          'py-2',
-        ],
+        pill: ['px-4', 'py-2'],
+        appointment: [],
       },
     },
     defaultVariants: {
@@ -52,6 +50,7 @@ export interface CardProps extends VariantProps<typeof cardVariant> {
     | 'secondaryOutlined';
   icon?: ReactNode;
   action?: ReactNode;
+  classname?: string;
 }
 
 const Card = ({
@@ -69,16 +68,18 @@ const Card = ({
   buttonVariant,
   icon,
   action,
+  classname
 }: CardProps) => {
   return (
-    <div className={`${cardVariant({ variant })} ${backgroundColor}`}>
+    <div className={`${cardVariant({ variant })} ${backgroundColor} ${classname}`}>
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
             <ProgressRing percentage={percentage} color={progressColor} />
           )}
         </div>
-
+        <div className="text-primary-400" />
+        <div className="text-tertiary-500" />
         {(title || description) && (
           <div
             className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
@@ -86,11 +87,11 @@ const Card = ({
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
                 {title && (
-                  <text
-                    className={`${variant === 'pill' || variant === 'default' ? 'text-h4' : 'text-h3'} text-${headerColor}`}
+                  <p
+                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor} text-left`}
                   >
                     {title}
-                  </text>
+                  </p>
                 )}
                 {variant !== 'pill' && subtitle && (
                   <text className={`text-h6 text-left text-${headerColor}`}>

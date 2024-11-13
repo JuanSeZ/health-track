@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { cva } from 'class-variance-authority';
-import SearchIcon from '../../assests/search-icon.svg'
+import SearchIcon from '../../assests/search-icon.svg';
 
 const searchBarStyles = cva([
   'w-[343px]',
@@ -15,7 +15,6 @@ const searchBarStyles = cva([
   'inline-flex',
   'items-center',
   'gap-[10px]', // Gap between the icon and input
-
 ]);
 
 const inputStyles = cva([
@@ -33,20 +32,22 @@ const inputStyles = cva([
 ]);
 
 // Define the component
-const SearchBar: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+const SearchBar: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => {
   const [placeholder, setPlaceholder] = useState('Search...');
 
   return (
     <div className={searchBarStyles()}>
       <div>
-        <SearchIcon/>
+        <SearchIcon />
       </div>
       <input
         type="text"
         className={inputStyles()}
         placeholder={placeholder}
-        onFocus={() => setPlaceholder('')}     // Clear the placeholder on focus
-        onBlur={() => setPlaceholder('Search...')}  // Restore the placeholder on blur
+        onFocus={() => setPlaceholder('')} // Clear the placeholder on focus
+        onBlur={() => setPlaceholder('Search...')} // Restore the placeholder on blur
         {...props}
       />
     </div>

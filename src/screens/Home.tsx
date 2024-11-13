@@ -2,12 +2,11 @@ import Card from '../components/card';
 import WaterDropIcon from '../assests/water-drop-icon.tsx';
 import FireIcon from '../assests/fire-icon.tsx';
 import Logo from '../assests/logo.svg';
-import Navbar from '../components/navbar';
-import { NavBarItemType } from '../components/navbar/Navbar.stories.tsx';
+import Navbar, { NavBarItemType } from '../components/navbar';
 
 export const Home = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-full pt-4 px-4">
       <div className="flex items-center justify-center">
         <Logo />
       </div>
@@ -15,9 +14,9 @@ export const Home = () => {
         <span className="text-h3 font-sans font-regular">Good morning,</span>
         <span className="text-h3 font-bold">Sofía</span>
       </div>
-      <div className="flex w-full flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <div
-          className="w-screen -mx-8 text-center flex flex-col py-4"
+          className="text-center flex flex-col py-2 w-screen -mx-4"
           style={{ backgroundColor: 'rgba(151,71,255,0.15)' }}
         >
           <text className="text-m1" style={{ color: '#9747FF' }}>
@@ -38,6 +37,7 @@ export const Home = () => {
           backgroundColor="bg-primary-300"
           iconBackgroundColor="bg-primary-400"
           headerColor="primary-600"
+          classname="w-full"
         />
         <Card
           variant="progressRing"
@@ -51,13 +51,17 @@ export const Home = () => {
           backgroundColor="bg-secondary-100"
           iconBackgroundColor="bg-secondary-200"
           headerColor="secondary-400"
+          classname="w-full"
         />
         <Card
-          variant="default"
-          subtitle="Doctor's appointment"
-          description="Hospital Austral, 15:00"
+          variant="appointment"
+          title="Doctor's appointment"
+          subtitle="Hospital Austral, 15:00"
           backgroundColor="bg-grey"
+          classname="w-full"
         />
+      </div>
+      <div className="flex justify-center">
         <Navbar activeItem={NavBarItemType.Home} />
       </div>
     </div>
