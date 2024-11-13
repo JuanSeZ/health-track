@@ -31,8 +31,8 @@ export const Selected: Story = {
     dayName: 'M',
     variant: 'selected',
   },
-  render: () => (
-    <CalendarDate variant={'selected'} number={'13'} dayName={'M'} />
+  render: (args) => (
+    <CalendarDate variant={args.variant} number={args.number} dayName={args.dayName} />
   ),
 };
 
@@ -42,7 +42,7 @@ export const Unselected: Story = {
     dayName: 'M',
     variant: 'selected',
   },
-  render: () => (
-    <CalendarDate variant={'unselected'} number={'13'} dayName={'M'} />
+  render: (args) => (
+    <CalendarDate variant={args.variant} number={args.number} dayName={args.dayName} />
   ),
 };
