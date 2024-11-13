@@ -20,7 +20,7 @@ export const CalendarWeek = ({ pickedDate, days }: CalendarTabProps) => {
   };
 
   return (
-    <div className={'flex flex-row space-x-[14px]'}>
+    <div className={'flex flex-row gap-4 '}>
       {days.map((day) => (
         <CalendarDate
           key={day.number}

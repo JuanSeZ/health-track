@@ -34,9 +34,9 @@ export const Home = () => {
           icon={<WaterDropIcon color="#39AECF" />}
           percentage={85}
           progressColor="#39AECF"
-          backgroundColor="bg-primary-300"
-          iconBackgroundColor="bg-primary-400"
-          headerColor="primary-600"
+          backgroundColor="bg-primary-600 bg-opacity-10"
+          iconBackgroundColor="bg-primary-400 bg-opacity-50"
+          headerColor="primary-400"
           classname="w-full"
         />
         <Card
@@ -49,7 +49,7 @@ export const Home = () => {
           percentage={22}
           progressColor="#FF8100"
           backgroundColor="bg-secondary-100"
-          iconBackgroundColor="bg-secondary-200"
+          iconBackgroundColor="bg-secondary-200 bg-opacity-50"
           headerColor="secondary-400"
           classname="w-full"
         />
@@ -57,7 +57,7 @@ export const Home = () => {
           variant="appointment"
           title="Doctor's appointment"
           subtitle="Hospital Austral, 15:00"
-          backgroundColor="bg-grey"
+          backgroundColor="bg-grey bg-opacity-30"
           classname="w-full"
         />
       </div>

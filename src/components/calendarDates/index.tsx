@@ -4,7 +4,7 @@ const cardButtonVariant = cva(
   [
     'justify-items-center',
     'content-center',
-    'w-[54.4px]',
+    'w-[58px]',
     'flex',
     'flex-col',
     'items-center',
@@ -14,7 +14,7 @@ const cardButtonVariant = cva(
     'rounded-[27px]',
     'relative',
     'font-sans',
-    'pt-[16px] pb-[12.94px] px-[15px]',
+    'pt-[12px] pb-[12.94px] px-[15px]',
   ],
   {
     variants: {

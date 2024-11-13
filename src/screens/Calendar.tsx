@@ -83,11 +83,11 @@ const Calendar = () => {
           <AddRoundLight />
         </div>
       </div>
-      <div className={'gap-4'}>
-        <div className={'mb-4 ml-3'}>
+      <div className={'gap-4 w-full'}>
+        <div className={''}>
           <CalendarWeek pickedDate={22} days={calendarDays} />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mt-4">
           {progressCards.map((card, index) => (
             <Card
               key={index}
@@ -104,6 +104,7 @@ const Calendar = () => {
               progressColor={card.progressColor}
               buttonVariant={card.buttonVariant}
               icon={card.icon}
+              classname="w-full"
             />
           ))}
         </div>
