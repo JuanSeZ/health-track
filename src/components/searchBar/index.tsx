@@ -28,7 +28,8 @@ const inputStyles = cva([
   'font-medium',
   'outline-none',
   'placeholder:text-body',
-  'placeholder-rgba(165, 164, 164, 0.5)'
+  'placeholder-rgba(165, 164, 164, 0.5)',
+  'text-black'
 ]);
 
 // Define the component

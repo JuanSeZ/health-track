@@ -23,7 +23,6 @@ const inputVariant = cva(
         default: ['text-black'],
         withIcon: ['text-black'], // Add padding for the icon on the right in the new variant
         redStroke: ['border', 'border-error', 'border-[0.5px]', 'placeholder-black'], // New variant with red stroke
-        time: ['flex', 'items-center', 'justify-between', 'gap-2', 'w-[75px]'], // Time variant with flex layout
       },
     },
     defaultVariants: {
@@ -64,7 +63,7 @@ const Input = ({
     <div className="relative w-[261px] h-[40px] bg-[#F5F8F9] rounded-[10px]">
       {label && (
         <label
-          className="absolute left-3 text-sm font-medium pointer-events-none z-10"
+          className="absolute left-3 text-label font-medium pointer-events-none z-10"
           style={{ color: 'rgba(165, 164, 164, 0.5)' }}
         >
           {label}
