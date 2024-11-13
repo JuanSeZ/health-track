@@ -61,6 +61,7 @@ export default {
     fontFamily: {
       sans: [
         "Montserrat",
+        "sans-serif",
         "system-ui",
         "-apple-system",
       ],

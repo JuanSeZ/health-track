@@ -2,6 +2,8 @@ import Card from '../components/card';
 import WaterDropIcon from '../assests/water-drop-icon.tsx';
 import FireIcon from '../assests/fire-icon.tsx';
 import Logo from '../assests/logo.svg';
+import Navbar from '../components/navbar';
+import { NavBarItemType } from '../components/navbar/Navbar.stories.tsx';
 
 export const Home = () => {
   return (
@@ -10,7 +12,7 @@ export const Home = () => {
         <Logo />
       </div>
       <div className="text-left flex flex-col">
-        <span className="text-h3 font-regular">Good morning,</span>
+        <span className="text-h3 font-sans font-regular">Good morning,</span>
         <span className="text-h3 font-bold">Sofía</span>
       </div>
       <div className="flex w-full flex-col gap-4">
@@ -52,10 +54,11 @@ export const Home = () => {
         />
         <Card
           variant="default"
-          title="Doctors's appointment"
-          subtitle="Hospital Austral, 15:00"
+          subtitle="Doctor's appointment"
+          description="Hospital Austral, 15:00"
           backgroundColor="bg-grey"
         />
+        <Navbar activeItem={NavBarItemType.Home} />
       </div>
     </div>
   );

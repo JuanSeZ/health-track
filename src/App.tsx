@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './components/navbar/index.tsx';
+import Home from './screens/home.tsx';
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Home />
     </div>
   );
 }
