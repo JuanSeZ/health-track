@@ -7,10 +7,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: [
-        'success',
-        'error',
-      ],
+      options: ['success', 'error'],
       control: { type: 'select' },
     },
   },
@@ -23,16 +20,12 @@ export const Success: Story = {
   args: {
     variant: 'success',
   },
-  render: (args) => (
-    <Toasts variant={args.variant} />
-  ),
+  render: (args) => <Toasts variant={args.variant} />,
 };
 
 export const Error: Story = {
   args: {
     variant: 'error',
   },
-  render: (args) => (
-    <Toasts variant={args.variant} />
-  ),
+  render: (args) => <Toasts variant={args.variant} />,
 };

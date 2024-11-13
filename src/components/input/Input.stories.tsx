@@ -11,11 +11,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: [
-        'default',
-        'withIcon',
-        'redStroke',
-      ],
+      options: ['default', 'withIcon', 'redStroke'],
     },
     // Ideally we would want to add list of Icons here, I couldn't find a way to do that
     rightIcon: {
@@ -38,9 +34,7 @@ export const Default: Story = {
   args: {
     variant: 'default',
   },
-  render: (args) => (
-    <Input {...args}/>
-  ),
+  render: (args) => <Input {...args} />,
 };
 
 export const WithIcon: Story = {
@@ -50,9 +44,7 @@ export const WithIcon: Story = {
     placeholder: 'Enter text',
     rightIcon: true,
   },
-  render: (args) => (
-    <Input {...args}  />
-  ),
+  render: (args) => <Input {...args} />,
 };
 
 export const RedStroke: Story = {
@@ -61,7 +53,5 @@ export const RedStroke: Story = {
     label: 'Name',
     placeholder: 'Enter text',
   },
-  render: (args) => (
-    <Input {...args}  />
-  ),
+  render: (args) => <Input {...args} />,
 };

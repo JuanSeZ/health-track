@@ -1,10 +1,9 @@
 import './App.css';
-import Home from './screens/home.tsx';
-
+import Calendar from './screens/Calendar.tsx';
 function App() {
   return (
     <div>
-      <Home />
+      <Calendar />
     </div>
   );
 }
