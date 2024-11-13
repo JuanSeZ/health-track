@@ -1,7 +1,6 @@
-import { InputHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
-import RightArrowIcon from '../../assests/right-arrow-icon.svg';
 import CrossIcon from '../../assests/input-cross-icon.svg';
 
 const inputVariant = cva(
@@ -28,7 +27,6 @@ const inputVariant = cva(
           'border-[0.5px]',
           'placeholder-black',
         ], // New variant with red stroke
-        time: ['flex', 'items-center', 'justify-between', 'gap-2', 'w-[75px]'], // Time variant with flex layout
       },
     },
     defaultVariants: {
@@ -67,7 +65,7 @@ const Input = ({
     <div className="relative w-[261px] h-[40px] bg-[#F5F8F9] rounded-[10px]">
       {label && (
         <label
-          className="absolute left-3 text-sm font-medium pointer-events-none z-10"
+          className="absolute left-3 text-label font-medium pointer-events-none z-10"
           style={{ color: 'rgba(165, 164, 164, 0.5)' }}
         >
           {label}
