@@ -41,7 +41,7 @@ export const Unselected: Story = {
   args: {
     number: '1',
     dayName: 'M',
-    variant: 'selected',
+    variant: 'unselected',
   },
   render: (args) => (
     <CalendarDate

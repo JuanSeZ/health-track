@@ -2,9 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ListItem from './index.tsx';
 import AvatarIcon from '/src/assests/dependant-icon.svg';
 
-const meta: Meta<typeof ListItem> = {
+const meta = {
   title: 'Components/ListItem',
   component: ListItem,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'ListItem component used for displaying items with optional icons, descriptions, and titles.',
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: 'boolean',
@@ -27,8 +35,9 @@ const meta: Meta<typeof ListItem> = {
     title: 'Your dependents',
     itemName: 'Sofía',
     description: '',
+    icon: false,
   },
-};
+} satisfies Meta<typeof ListItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -38,8 +47,11 @@ export const Default: Story = {
     icon: false,
     description: '',
     itemName: '',
-    title: 'Your dependents'
+    title: 'Your dependents',
   },
+  render: (args) => (
+    <ListItem {...args} icon={args.icon ? <AvatarIcon /> : undefined} />
+  ),
 };
 
 export const WithIcon: Story = {
@@ -47,13 +59,10 @@ export const WithIcon: Story = {
     icon: true,
     description: '',
     itemName: '',
-    title: 'Juan'
+    title: 'Juan',
   },
   render: (args) => (
-    <ListItem
-      {...args}
-      icon={<AvatarIcon />}
-    />
+    <ListItem {...args} icon={args.icon ? <AvatarIcon /> : undefined} />
   ),
 };
 
@@ -62,13 +71,9 @@ export const WithDescription: Story = {
     icon: false,
     description: 'Manage your account',
     itemName: '',
-    title: 'Settings'
+    title: 'Settings',
   },
-  render: (args) => (
-    <ListItem
-      {...args}
-    />
-  ),
+  render: (args) => <ListItem {...args} />,
 };
 
 export const WithItemName: Story = {
@@ -76,11 +81,7 @@ export const WithItemName: Story = {
     icon: false,
     description: '',
     itemName: 'Sofía',
-    title: 'Name'
+    title: 'Name',
   },
-  render: (args) => (
-    <ListItem
-      {...args}
-    />
-  ),
+  render: (args) => <ListItem {...args} />,
 };

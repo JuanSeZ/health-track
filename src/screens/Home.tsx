@@ -14,9 +14,9 @@ export const Home = () => {
         <span className="text-h3 font-sans font-regular">Good morning,</span>
         <span className="text-h3 font-bold">Sofía</span>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         <div
-          className="text-center flex flex-col py-2 w-screen -mx-4"
+          className="text-center flex flex-col py-1 w-screen -mx-4"
           style={{ backgroundColor: 'rgba(151,71,255,0.15)' }}
         >
           <text className="text-m1" style={{ color: '#9747FF' }}>
@@ -36,7 +36,7 @@ export const Home = () => {
           progressColor="#39AECF"
           backgroundColor="bg-primary-600 bg-opacity-10"
           iconBackgroundColor="bg-primary-400 bg-opacity-50"
-          headerColor="primary-400"
+          headerColor="primary-500"
           classname="w-full"
         />
         <Card
