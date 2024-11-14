@@ -48,7 +48,7 @@ const meta: Meta<typeof Card> = {
       description: 'Background color of the icon container',
     },
     percentage: {
-      control: 'number',
+      control: { type: 'number', min: 0, max: 100, step: 1 },
       description: 'Percentage for progress indicators',
     },
     progressColor: {
