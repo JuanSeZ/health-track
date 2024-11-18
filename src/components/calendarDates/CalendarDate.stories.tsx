@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { CalendarDate } from './index';
 
+const dayNames = ["M", "T", "W", "T", "F", "S"];
+
 const meta = {
   title: 'Components/CalendarDateButton',
   component: CalendarDate,
@@ -14,7 +16,8 @@ const meta = {
       control: { type: 'text' },
     },
     dayName: {
-      control: { type: 'text' },
+      control: { type: 'select' },
+      options: dayNames
     },
   },
 } satisfies Meta<typeof CalendarDate>;
