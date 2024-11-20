@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import Button from '../button';
 import ProgressRing from '../../assests/progress-ring.tsx';
 import PlusIcon from '../../assests/plus-icon.tsx';
-import ProgressBar from '../../assests/progress-bar.tsx';
+import Index from '../progressBar';
 
 const cardVariant = cva(
   [
@@ -77,7 +77,7 @@ const Card = ({
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
-            <ProgressRing percentage={percentage} color={progressColor} />
+            <Index percentage={percentage} color={progressColor} />
           )}
         </div>
         <div className="text-primary-100" />
@@ -160,7 +160,7 @@ const Card = ({
 
       {variant === 'progressBar' && (
         <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-          <ProgressBar percentage={percentage} color={progressColor} />
+          <Index percentage={percentage} color={progressColor} />
         </div>
       )}
     </div>
