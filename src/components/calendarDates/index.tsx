@@ -4,17 +4,15 @@ const cardButtonVariant = cva(
   [
     'justify-items-center',
     'content-center',
-    'w-[58px]',
+    'w-[56px]',
     'flex',
     'flex-col',
     'items-center',
     'gap-[15px]',
-    'h-[100px]',
+    'h-[87px]',
     'overflow-hidden',
     'rounded-[27px]',
     'relative',
-    'font-sans',
-    'pt-[12px] pb-[12.94px] px-[15px]',
   ],
   {
     variants: {
@@ -35,10 +33,9 @@ const numberVariant = cva(
     'tracking-[0]',
     'relative',
     'h-[30px]',
-    'font-normal',
     'text-center',
     'font-extralight',
-    'font-sans'
+    'pt-[8px]',
   ],
   {
     variants: {
@@ -60,10 +57,8 @@ const dayNameVariant = cva(
     'content-center',
     'justify-items-center',
     'tracking-[0]',
-    'h-[11px]',
     'leading-[normal]',
     'font-light',
-    'font-sans',
   ],
   {
     variants: {
