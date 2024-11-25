@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card from './index.tsx';
 import PlusIcon from '../../assests/plus-icon.tsx';
 import Button from '../button';
+import FireIcon from '../../assests/fire-icon.tsx';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -13,7 +14,13 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'progressRing', 'progressBar', 'pill'],
+      options: [
+        'default',
+        'progressRing',
+        'progressBar',
+        'pill',
+        'streakMessage',
+      ],
     },
     title: {
       control: 'text',
@@ -134,33 +141,6 @@ export const ProgressRing: Story = {
   ),
 };
 
-export const ProgressBar: Story = {
-  args: {
-    variant: 'progressBar',
-    percentage: 60,
-    progressColor: '#39AECF',
-    backgroundColor: 'primary-300',
-    icon: true,
-  },
-  render: (args) => (
-    <Card
-      {...args}
-      icon={args.icon ? <PlusIcon color="black" /> : undefined}
-      backgroundColor={`bg-${args.backgroundColor}`}
-      action={
-        args.action ? (
-          <Button
-            label="Add"
-            leftIcon={<PlusIcon />}
-            variant={args.buttonVariant}
-            size="medium"
-          />
-        ) : undefined
-      }
-    />
-  ),
-};
-
 export const Pill: Story = {
   args: {
     variant: 'pill',
@@ -172,10 +152,26 @@ export const Pill: Story = {
 export const Appointment: Story = {
   args: {
     variant: 'appointment',
-    title: 'Doctor’s appointment',
-    subtitle: 'Hospital Austral, 15:00',
+    title: 'Doctor’s Appointment',
+    description: 'Hospital Austral, 15:00',
     backgroundColor: 'grey',
-    description: '',
+    subtitle: '',
+  },
+  render: (args) => (
+    <Card {...args} backgroundColor={`bg-${args.backgroundColor}`} />
+  ),
+};
+
+export const StreakMessage: Story = {
+  args: {
+    variant: 'streakMessage',
+    description: 'You’ve stayed hydrated for 15 days!',
+    backgroundColor: 'primary-100',
+    headerColor: 'primary-600',
+    icon: <FireIcon color="black" />,
+    iconColor: 'black',
+    iconBackgroundColor: 'primary-600',
+    action: true,
   },
   render: (args) => (
     <Card {...args} backgroundColor={`bg-${args.backgroundColor}`} />

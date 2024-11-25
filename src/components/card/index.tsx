@@ -1,19 +1,18 @@
 import { ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import Button from '../button';
-import ProgressRing from '../../assests/progress-ring.tsx';
 import PlusIcon from '../../assests/plus-icon.tsx';
 import Index from '../progressBar';
 
 const cardVariant = cva(
   [
     'rounded-[14px]',
-    'p-[16px]',
+    'p-[10px]',
     'shadow-md',
     'flex',
     'flex-col',
     'justify-between',
-    'gap-[8px]',
+    'gap-[4px]',
     'min-w-[350px]',
   ],
   {
@@ -24,6 +23,7 @@ const cardVariant = cva(
         progressBar: ['relative'],
         pill: ['px-4', 'py-2'],
         appointment: [],
+        streakMessage: [],
       },
     },
     defaultVariants: {
@@ -77,7 +77,7 @@ const Card = ({
       <div className="flex flex-row">
         <div className="flex items-center justify-center">
           {variant === 'progressRing' && (
-            <Index percentage={percentage} color={progressColor} />
+            <Index percentage={percentage} progressColor={progressColor} />
           )}
         </div>
         <div className="text-primary-100" />
@@ -112,23 +112,18 @@ const Card = ({
         <div className="bg-tertiary-400" />
         <div className="bg-tertiary-500" />
 
-        {(title || description) && (
+        {title && (
           <div
-            className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col gap-5'} max-h-fit px-2.5 py-2 w-full`}
+            className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col'} w-full`}
           >
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
                 {title && (
                   <p
-                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h5' : 'text-h3'} text-${headerColor} text-left w-auto`}
+                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h6 font-medium' : 'text-h3'} text-${headerColor} text-left w-auto`}
                   >
                     {title}
                   </p>
-                )}
-                {variant !== 'pill' && subtitle && (
-                  <text className={`text-h6 text-left text-${headerColor}`}>
-                    {subtitle}
-                  </text>
                 )}
               </div>
               {variant !== 'pill' && icon && (
@@ -139,6 +134,15 @@ const Card = ({
                 </div>
               )}
             </div>
+            {subtitle && (
+              <div className='pb-3'>
+                {variant !== 'pill' && subtitle && (
+                  <text className={`text-h6 text-left text-${headerColor}`}>
+                    {subtitle}
+                  </text>
+                )}
+              </div>
+            )}
             {variant !== 'pill' && description && (
               <div className={`text-left text-m1 text-${descriptionColor}`}>
                 {description}
@@ -160,7 +164,7 @@ const Card = ({
 
       {variant === 'progressBar' && (
         <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-          <Index percentage={percentage} color={progressColor} />
+          <Index percentage={percentage} progressColor={progressColor} />
         </div>
       )}
     </div>
