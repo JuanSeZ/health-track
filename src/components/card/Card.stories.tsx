@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Card from './index.tsx';
 import PlusIcon from '../../assests/plus-icon.tsx';
+import FireIcon from '../../assests/fire-icon.tsx';
 import Button from '../button';
 
+// Storybook Metadata
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
@@ -13,16 +15,16 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'progressRing', 'progressBar', 'pill'],
+      options: [
+        'default',
+        'progressRing',
+        'pill',
+        'appointment',
+        'streakMessage',
+      ],
     },
-    title: {
-      control: 'text',
-      description: 'Title of the card',
-    },
-    subtitle: {
-      control: 'text',
-      description: 'Subtitle of the card',
-    },
+    title: { control: 'text', description: 'Title of the card' },
+    subtitle: { control: 'text', description: 'Subtitle of the card' },
     headerColor: {
       control: 'color',
       description: 'Color of the title and subtitle text',
@@ -39,10 +41,7 @@ const meta: Meta<typeof Card> = {
       control: 'color',
       description: 'Background color of the card',
     },
-    iconColor: {
-      control: 'color',
-      description: 'Color of the icon',
-    },
+    iconColor: { control: 'color', description: 'Color of the icon' },
     iconBackgroundColor: {
       control: 'color',
       description: 'Background color of the icon container',
@@ -65,10 +64,7 @@ const meta: Meta<typeof Card> = {
       ],
       description: 'Button variant for the action button',
     },
-    icon: {
-      control: 'boolean',
-      description: 'Display an icon in the card',
-    },
+    icon: { control: 'boolean', description: 'Display an icon in the card' },
     action: {
       control: 'boolean',
       description: 'Display an action button in the card',
@@ -83,31 +79,43 @@ const meta: Meta<typeof Card> = {
     icon: false,
     action: false,
     percentage: 50,
+    backgroundColor: 'primary-300',
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Utility Functions
+const getIcon = (args: any) =>
+  args.icon ? <PlusIcon color={args.iconColor || 'black'} /> : null;
+
+const getAction = (args: any) =>
+  args.action ? (
+    <Button
+      label="Add"
+      leftIcon={<PlusIcon />}
+      variant={args.buttonVariant || 'primary'}
+      size="medium"
+    />
+  ) : null;
+
+// Stories
 export const Default: Story = {
   args: {
     variant: 'default',
+    icon: true,
+    action: true,
+    backgroundColor: 'primary-300',
+    classname: 'w-[350px]',
   },
   render: (args) => (
     <Card
       {...args}
-      icon={args.icon ? <PlusIcon /> : undefined}
+      icon={getIcon(args)}
+      action={getAction(args)}
       backgroundColor={`bg-${args.backgroundColor}`}
-      action={
-        args.action ? (
-          <Button
-            label="Add"
-            leftIcon={<PlusIcon />}
-            variant={args.buttonVariant}
-            size="medium"
-          />
-        ) : undefined
-      }
+      classname={args.classname}
     />
   ),
 };
@@ -116,47 +124,19 @@ export const ProgressRing: Story = {
   args: {
     variant: 'progressRing',
     percentage: 75,
-    progressColor: '#39AECF',
+    progressColor: '#057D9F',
     icon: true,
-    backgroundColor: 'primary-300',
-    iconColor: 'primary-600',
-    iconBackgroundColor: 'primary-600',
+    classname: 'w-[350px]',
+    action: true,
+    headerColor: 'primary-600',
   },
   render: (args) => (
     <Card
       {...args}
-      icon={args.icon ? <PlusIcon color="black" /> : undefined}
+      icon={getIcon(args)}
+      action={getAction(args)}
       backgroundColor={`bg-${args.backgroundColor}`}
-      headerColor={`text-primary-100`}
-      iconBackgroundColor={`bg-${args.backgroundColor}`}
-      iconColor={args.iconColor}
-    />
-  ),
-};
-
-export const ProgressBar: Story = {
-  args: {
-    variant: 'progressBar',
-    percentage: 60,
-    progressColor: '#39AECF',
-    backgroundColor: 'primary-300',
-    icon: true,
-  },
-  render: (args) => (
-    <Card
-      {...args}
-      icon={args.icon ? <PlusIcon color="black" /> : undefined}
-      backgroundColor={`bg-${args.backgroundColor}`}
-      action={
-        args.action ? (
-          <Button
-            label="Add"
-            leftIcon={<PlusIcon />}
-            variant={args.buttonVariant}
-            size="medium"
-          />
-        ) : undefined
-      }
+      classname={args.classname}
     />
   ),
 };
@@ -164,20 +144,57 @@ export const ProgressBar: Story = {
 export const Pill: Story = {
   args: {
     variant: 'pill',
-    title: 'Pill',
-    action: 'Add',
+    title: 'Pill ',
+    action: true,
+    icon: true,
+    classname: 'w-[350px]',
   },
+  render: (args) => (
+    <Card
+      {...args}
+      icon={getIcon(args)}
+      action={getAction(args)}
+      backgroundColor={`bg-${args.backgroundColor}`}
+      classname={args.classname}
+    />
+  ),
 };
 
 export const Appointment: Story = {
   args: {
     variant: 'appointment',
-    title: 'Doctor’s appointment',
-    subtitle: 'Hospital Austral, 15:00',
-    backgroundColor: 'grey',
-    description: '',
+    title: 'Doctor’s Appointment',
+    description: 'Hospital Austral, 15:00',
+    icon: false,
+    classname: 'w-[350px]',
   },
   render: (args) => (
-    <Card {...args} backgroundColor={`bg-${args.backgroundColor}`} />
+    <Card
+      {...args}
+      icon={getIcon(args)}
+      backgroundColor={`bg-${args.backgroundColor}`}
+      classname={args.classname}
+    />
+  ),
+};
+
+export const StreakMessage: Story = {
+  args: {
+    variant: 'streakMessage',
+    description: 'You’ve stayed hydrated for 15 days!',
+    icon: true,
+    iconColor: '#057D9F',
+    iconBackgroundColor: 'bg-primary-400',
+    action: true,
+    backgroundColor: 'primary-200',
+    descriptionColor: 'primary-600',
+  },
+  render: (args) => (
+    <Card
+      {...args}
+      icon={<FireIcon color={args.iconColor} />}
+      action={getAction(args)}
+      backgroundColor={`bg-${args.backgroundColor}`}
+    />
   ),
 };

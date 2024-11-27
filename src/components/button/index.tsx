@@ -40,6 +40,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariant> {
   label: string;
   leftIcon?: ReactNode;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -48,6 +49,7 @@ const Button = ({
   size,
   label,
   leftIcon,
+  className,
   onClick,
   ...rest
 }: ButtonProps) => {
@@ -62,7 +64,7 @@ const Button = ({
 
   return (
     <button
-      className={buttonVariant({ size, variant })}
+      className={`${buttonVariant({ size, variant })} ${className}`}
       onClick={onClick}
       {...rest}
     >
