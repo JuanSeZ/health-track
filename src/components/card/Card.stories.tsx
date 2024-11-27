@@ -167,6 +167,7 @@ export const Appointment: Story = {
     description: 'Hospital Austral, 15:00',
     icon: false,
     classname: 'w-[350px]',
+    backgroundColor: 'grey',
   },
   render: (args) => (
     <Card
