@@ -2,13 +2,11 @@ import { ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import Button from '../button';
 import PlusIcon from '../../assests/plus-icon.tsx';
-import Index from '../progressBar';
+import ProgressRing from '../../assests/progress-ring.tsx';
 
 const cardVariant = cva(
   [
     'rounded-[14px]',
-    'p-[10px]',
-    'shadow-md',
     'flex',
     'flex-col',
     'justify-between',
@@ -20,7 +18,6 @@ const cardVariant = cva(
       variant: {
         default: [],
         progressRing: ['relative'],
-        progressBar: ['relative'],
         pill: ['px-4', 'py-2'],
         appointment: [],
         streakMessage: [],
@@ -51,6 +48,7 @@ export interface CardProps extends VariantProps<typeof cardVariant> {
   icon?: ReactNode;
   action?: ReactNode;
   classname?: string;
+  callToAction?: any;
 }
 
 const Card = ({
@@ -69,102 +67,155 @@ const Card = ({
   icon,
   action,
   classname,
+  callToAction,
 }: CardProps) => {
   return (
     <div
       className={`${cardVariant({ variant })} ${backgroundColor} ${classname}`}
+      style={{
+        minWidth: 'unset',
+      }}
     >
-      <div className="flex flex-row">
-        <div className="flex items-center justify-center">
-          {variant === 'progressRing' && (
-            <Index percentage={percentage} progressColor={progressColor} />
+      {variant === 'streakMessage' ? (
+        <div
+          className="flex flex-col justify-between items-start p-4 gap-2 rounded-[14px]"
+          style={{ width: '169px' }}
+        >
+          <div className="flex justify-end w-full h-[54px]">
+            <div
+              className={`icon ${iconBackgroundColor} w-[54px] h-full rounded-full flex items-center justify-center p-2`}
+            >
+              {icon}
+            </div>
+          </div>
+          <div>
+            {description && (
+              <p
+                className={`text-left text-m1 mt-2 text-${descriptionColor} `}
+              >
+                {description}
+              </p>
+            )}
+          </div>
+          {callToAction && (
+            <p className="text-m2 text-left text-black font-medium">
+              {callToAction}
+            </p>
           )}
         </div>
-        <div className="text-primary-100" />
-        <div className="text-primary-200" />
-        <div className="text-primary-300" />
-        <div className="text-primary-400" />
-        <div className="text-primary-500" />
-        <div className="text-primary-600" />
-        <div className="text-secondary-100" />
-        <div className="text-secondary-200" />
-        <div className="text-secondary-300" />
-        <div className="text-secondary-400" />
-        <div className="text-secondary-500" />
-        <div className="text-tertiary-200" />
-        <div className="text-tertiary-300" />
-        <div className="text-tertiary-400" />
-        <div className="text-tertiary-500" />
-
-        <div className="bg-primary-100" />
-        <div className="bg-primary-200" />
-        <div className="bg-primary-300" />
-        <div className="bg-primary-400" />
-        <div className="bg-primary-500" />
-        <div className="bg-primary-600" />
-        <div className="bg-secondary-100" />
-        <div className="bg-secondary-200" />
-        <div className="bg-secondary-300" />
-        <div className="bg-secondary-400" />
-        <div className="bg-secondary-500" />
-        <div className="bg-tertiary-200" />
-        <div className="bg-tertiary-300" />
-        <div className="bg-tertiary-400" />
-        <div className="bg-tertiary-500" />
-
-        {title && (
-          <div
-            className={`flex ${variant === 'pill' ? 'flex-row items-center justify-between' : 'flex-col'} w-full`}
-          >
-            <div className="flex items-center justify-between w-full">
-              <div className="flex flex-col">
-                {title && (
-                  <p
-                    className={`${variant === 'pill' ? 'text-h4' : variant === 'appointment' ? 'text-h6 font-medium' : 'text-h3'} text-${headerColor} text-left w-auto`}
-                  >
-                    {title}
-                  </p>
-                )}
-              </div>
-              {variant !== 'pill' && icon && (
-                <div
-                  className={`icon ${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
+      ) : variant === 'progressRing' ? (
+        <div className="flex w-full gap-3 p-3">
+          <div className="flex-shrink-0">
+            <ProgressRing color={progressColor} percentage={percentage} />
+          </div>
+          <div className="flex justify-between w-full items-center">
+            <div className="flex flex-col align-bottom">
+              {title && (
+                <p
+                  className={`text-h4 text-${headerColor} font-semibold text-left w-auto leading-tight`}
                 >
-                  {icon}
-                </div>
+                  {title}
+                </p>
+              )}
+              {subtitle && (
+                <p
+                  className={`text-m1 text-${headerColor} text-left w-auto leading-tight`}
+                >
+                  {subtitle}
+                </p>
               )}
             </div>
-            {subtitle && (
-              <div className='pb-3'>
-                {variant !== 'pill' && subtitle && (
-                  <text className={`text-h6 text-left text-${headerColor}`}>
-                    {subtitle}
-                  </text>
-                )}
-              </div>
-            )}
-            {variant !== 'pill' && description && (
-              <div className={`text-left text-m1 text-${descriptionColor}`}>
-                {description}
-              </div>
-            )}
             {action && (
-              <div className={`${variant === 'pill' ? 'ml-0' : 'ml-auto'}`}>
+              <div className="flex ml-auto h-[85%] items-center">
                 <Button
                   label="Add"
                   leftIcon={<PlusIcon color={iconColor} />}
                   variant={buttonVariant}
-                  size="medium"
+                  size="small"
+                  className="h-full"
                 />
               </div>
             )}
           </div>
-        )}
-      </div>
-
-      {variant === 'progressBar' && (
-        <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-          <Index percentage={percentage} progressColor={progressColor} />
+        </div>
+      ) : variant === 'appointment' ? (
+        <div className="flex w-full items-center p-2.5">
+          <div className="flex flex-col justify-center w-full">
+            {title && (
+              <p className="text-h6 font-medium text-left w-auto">{title}</p>
+            )}
+            {description && (
+              <p className="text-m1 text-left w-auto">{description}</p>
+            )}
+          </div>
+          {icon && (
+            <div
+              className={`icon ${iconBackgroundColor} w-fit h-fit rounded-full flex items-center justify-center p-2`}
+            >
+              {icon}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div
+          className={`flex ${
+            variant === 'pill'
+              ? 'flex-row items-center justify-between'
+              : 'flex-col'
+          } w-full p-4`}
+        >
+          <div className="flex items-center justify-between w-full">
+            <div className="flex flex-col">
+              {title && (
+                <p
+                  className={`${
+                    variant === 'pill'
+                      ? 'text-h4'
+                      : variant === 'appointment'
+                        ? 'text-h6 font-medium'
+                        : 'text-h3'
+                  } text-${headerColor} text-left w-auto`}
+                >
+                  {title}
+                </p>
+              )}
+            </div>
+            {variant !== 'pill' && icon && (
+              <div
+                className={`icon ${iconBackgroundColor} w-[54px] h-[54px] rounded-full flex items-center justify-center`}
+              >
+                {icon}
+              </div>
+            )}
+          </div>
+          {subtitle && (
+            <div className="pb-3">
+              {variant !== 'pill' && subtitle && (
+                <text className={`text-h6 text-left text-${headerColor}`}>
+                  {subtitle}
+                </text>
+              )}
+            </div>
+          )}
+          {variant !== 'pill' && description && (
+            <div className={`text-left text-m1 mt-2 text-${descriptionColor}`}>
+              {description}
+            </div>
+          )}
+          {callToAction && (
+            <div className="text-left text-m2 mt-3">{callToAction}</div>
+          )}
+          {action && (
+            <div className={`${variant === 'pill' ? 'ml-0' : 'ml-auto mt-5'}`}>
+              <Button
+                label="Add"
+                leftIcon={<PlusIcon color={iconColor} />}
+                variant={buttonVariant}
+                size={variant === 'pill' ? 'small' : 'medium'}
+                className="h-full"
+              />
+            </div>
+          )}
         </div>
       )}
     </div>

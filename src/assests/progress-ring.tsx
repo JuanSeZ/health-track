@@ -4,8 +4,8 @@ interface ProgressRingProps {
 }
 
 const ProgressRing = ({ percentage, color }: ProgressRingProps) => {
-  const radius = 50;
-  const stroke = 10;
+  const radius = 30;
+  const stroke = 5;
   const normalizedRadius = radius - stroke * 0.5;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
@@ -39,9 +39,8 @@ const ProgressRing = ({ percentage, color }: ProgressRingProps) => {
         y="50%"
         textAnchor="middle"
         dy=".3em"
-        fontSize="20px"
         fill={color}
-        className="text-h4"
+        className="text-h6"
       >
         {percentage}%
       </text>
